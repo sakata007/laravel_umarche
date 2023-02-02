@@ -20,6 +20,9 @@
                     <x-nav-link :href="route('admin.owners.index')" :active="request()->routeIs('admin.owners.dashboard')">
                         オーナー管理
                     </x-nav-link>
+                    <x-nav-link :href="route('admin.expired-owners.index')" :active="request()->routeIs('admin.owners.dashboard')">
+                        期限切れオーナー管理
+                    </x-nav-link>
                 </div>
             </div>
 
