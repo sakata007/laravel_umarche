@@ -23,15 +23,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.welcome');
-});
+// Route::get('/', function () {
+//     return view('admin.welcome');
+// });
 
 Route::resource('owners', OwnersController::class)
-->middleware('auth:admin');
+->middleware('auth:admin')->except(['show']);
 
 Route::prefix('expired-owners')->
-// Route::prefix('admin')->
 middleware('auth:admin')->group(function() {
     Route::get('index', [OwnersController::class, 'expiredOwnerIndex'])->name('expired-owners.index');
     Route::post('destroy/{owner}', [OwnersController::class, 'expiredOwnerDestroy'])->name('expired-owners.destroy');
