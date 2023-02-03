@@ -22,7 +22,7 @@ class Authenticate extends Middleware
         if (! $request->expectsJson()) {
             if(Route::is('owner.*')){
                 return route($this->owner_route);
-            } else if(Route::is('admin.*')) {
+            } elseif(Route::is('admin.*')) {
                 return route($this->admin_route);
             } else {
                 return($this->user_route);
