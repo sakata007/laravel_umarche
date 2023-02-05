@@ -25,7 +25,9 @@ class UploadImageRequest extends FormRequest
     {
         return [
             'iamge' => 'image|mimes:jpg,jpeg,png|max;2048',
+            'files.*.iamge' => 'image|mimes:jpg,jpeg,png|max;2048',
             // 'image' => 'image|mimes:png|max:2048',
+
         ];
     }
 
