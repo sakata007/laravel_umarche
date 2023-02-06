@@ -769,6 +769,9 @@ select {
 .mt-6 {
   margin-top: 1.5rem;
 }
+.mt-32 {
+  margin-top: 8rem;
+}
 .block {
   display: block;
 }

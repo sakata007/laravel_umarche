@@ -37,9 +37,9 @@
                                   <form id="delete_{{ $owner->id }}" action="{{ route('admin.owners.destroy', ['owner' => $owner->id]) }}" method="post">
                                     @method('DELETE')
                                     @csrf
-                                  <td class="px-4 py-3">
-                                    <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" type="submit" class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded">削除</a>
-                                  </td>
+                                        <td class="px-4 py-3">
+                                            <a href="#" data-id="{{ $owner->id }}" onclick="deletePost(this)" type="submit" class="text-white bg-red-400 border-0 py-2 px-4 focus:outline-none hover:bg-red-600 rounded">削除</a>
+                                        </td>
                                     </form>
                                 </tr>
                                 @endforeach
