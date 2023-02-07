@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\SecondaryCategory;
 use App\Models\Image;
+use App\Models\Stock;
+use PhpParser\Builder\Function_;
+use PhpParser\Node\Expr\FuncCall;
 
 class Product extends Model
 {
@@ -25,5 +28,10 @@ class Product extends Model
     // ↑データベースカラム名と一致するとエラーが発生するため変更している
     {
         return $this->belongsTo(Image::class, 'image1', 'id');
+    }
+
+    public function stock()
+    {
+        return $this->hasMany(Stock::class);
     }
 }
