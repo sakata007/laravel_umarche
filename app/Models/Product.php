@@ -38,10 +38,22 @@ class Product extends Model
         // →第二引数で、テーブルのカラムを指定する必要がある
         return $this->belongsTo(SecondaryCategory::class, 'secondary_category_id');
     }
+    // ↓データベースカラム名と一致するとエラーが発生するため変更している
     public function imageFirst()
-    // ↑データベースカラム名と一致するとエラーが発生するため変更している
     {
         return $this->belongsTo(Image::class, 'image1', 'id');
+    }
+    public function imageSecond()
+    {
+        return $this->belongsTo(Image::class, 'image2', 'id');
+    }
+    public function imageThird()
+    {
+        return $this->belongsTo(Image::class, 'image3', 'id');
+    }
+    public function imageForth()
+    {
+        return $this->belongsTo(Image::class, 'image4', 'id');
     }
 
     public function stock()
