@@ -294,6 +294,11 @@
     will-change: transform;
   }
 
+.swiper {
+    /* width: 600px; */
+    height: 300px;
+  }
+
 /*
 ! tailwindcss v3.2.4 | MIT License | https://tailwindcss.com
 */
@@ -915,6 +920,10 @@ select{
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
 }
+.my-8{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
 .ml-3{
   margin-left: 0.75rem;
 }
@@ -978,11 +987,11 @@ select{
 .mt-6{
   margin-top: 1.5rem;
 }
-.ml-auto{
-  margin-left: auto;
-}
 .mr-3{
   margin-right: 0.75rem;
+}
+.ml-auto{
+  margin-left: auto;
 }
 .block{
   display: block;
@@ -1025,6 +1034,9 @@ select{
 }
 .h-6{
   height: 1.5rem;
+}
+.h-40{
+  height: 10rem;
 }
 .min-h-screen{
   min-height: 100vh;
@@ -1077,8 +1089,8 @@ select{
 .w-28{
   width: 7rem;
 }
-.w-10{
-  width: 2.5rem;
+.w-40{
+  width: 10rem;
 }
 .max-w-7xl{
   max-width: 80rem;
@@ -1324,6 +1336,10 @@ select{
 .fill-current{
   fill: currentColor;
 }
+.object-cover{
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .p-6{
   padding: 1.5rem;
 }
@@ -1332,9 +1348,6 @@ select{
 }
 .p-2{
   padding: 0.5rem;
-}
-.p-0{
-  padding: 0px;
 }
 .px-4{
   padding-left: 1rem;
@@ -1687,6 +1700,10 @@ select{
 .hover\:bg-gray-50:hover{
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
+}
+.hover\:bg-indigo-500:hover{
+  --tw-bg-opacity: 1;
+  background-color: rgb(99 102 241 / var(--tw-bg-opacity));
 }
 .hover\:text-gray-500:hover{
   --tw-text-opacity: 1;
