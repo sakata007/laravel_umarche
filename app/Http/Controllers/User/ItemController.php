@@ -38,6 +38,7 @@ class ItemController extends Controller
         $products = Product::availableItems()
         // null合体演算子　nullだった時??の後の値を返す
         ->selectCategory($request->category ?? '0')
+        ->searchKeyword($request->keyword)
         ->sortOrder($request->sort)
         ->paginate($request->pagination ?? 20);
 
