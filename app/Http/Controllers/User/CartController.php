@@ -58,6 +58,7 @@ class CartController extends Controller
 
     public function checkout()
     {
+        // dd('test');
         $user = User::findOrFail(Auth::id());
         $products = $user->products;
 
@@ -67,7 +68,6 @@ class CartController extends Controller
             $quantity = Stock::where('product_id', $product->id)->sum('quantity');
 
             if($product->pivot->quantity > $quantity) {
-                // indexメソッド内の変数もviewに渡す必要があるため
                 return redirect()->route('user.cart.index');
             } else {
                 $lineItem = [
@@ -87,16 +87,6 @@ class CartController extends Controller
                         'quantity' => $product->pivot->quantity * -1,
                     ]);
                 }
-
-                dd('test');
-        //     $lineItem = [
-        //         'name' => $product->name,
-        //         'description' => $product->infomation,
-        //         'amount' => $product->price,
-        //         'currency' => 'jpy',
-        //         'quantity' => $product->pivot->quantity,
-        //     ];
-        //     array_push($lineItems, $lineItem);
         }
 
         // dd($lineItems);
@@ -104,7 +94,32 @@ class CartController extends Controller
 
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
-            'line_items' => [[$lineItems]],
+            // 'line_items' => [$lineItems],
+            // 'line_items' => [[
+            //     'price_data' => [
+            //         'currency' => 'usd',
+            //         'unit_amount' => 2000,
+            //         'product_data' => [
+            //             'name' => 'T-shirt',
+            //             'description' => 'Comfortable cotton t-shirt',
+            //             'images' => ['https://example.com/t-shirt.png'],
+            //         ],
+            //     ],
+            //     'quantity' => 1,
+            // ]],
+            'line_items' => [[
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'unit_amount' => $product->price,
+                    'product_data' => [
+                        'name' => $product->name,
+                        'description' => $product->infomation,
+                        // 'images' => ['https://example.com/t-shirt.png'],
+                    ],
+                ],
+                'quantity' => $product->pivot->quantity,
+            ]],
+
             'mode' => 'payment',
             'success_url' => route('user.items.index'),
             'cancel_url' => route('user.cart.index'),
